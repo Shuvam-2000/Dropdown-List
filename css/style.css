@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("../assests/background8.jpg");
+}
+
+.dropdown-box {
+    position: relative;
+    transition: 0.5s;
+}
+
+.dropdown-box.active {
+    margin-top: -200px;
+}
+
+.dropdown-box::before {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1000;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #333;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(-46deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.dropdown-box.active::before {
+    top: 22px;
+    transform: rotate(-225deg);
+}
+
+.dropdown-box input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    cursor: pointer;
+    background: #fff;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.5);
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+.dropdown-box .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: grey;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 30px 30px black;
+    border-radius: 10px;
+    overflow: hidden;
+    height: auto; 
+    transition: height 0.4s;
+}
+
+
+.dropdown-box.active .options {
+    height: 238px;
+}
+
+.dropdown-box .options div {
+    padding: 12px 20px;
+    cursor: pointer;
+    /* color: white; */
+}
+
+.dropdown-box .options div:hover {
+    background-color: blue;
+    color: white;
+}
+
+.dropdown-box .options div i{
+    position: relative;
+    top: 4px;
+    font-size: 1.2em;
+}
